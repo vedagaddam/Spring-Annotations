@@ -1,11 +1,11 @@
 package com.vedagaddam.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoachSetterInjection implements Coach {
-	
 	private FortuneService fortuneService;
 	//default constructor
 	public TennisCoachSetterInjection(){
