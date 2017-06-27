@@ -1,12 +1,15 @@
 package com.vedagaddam.annotation;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
+//@Scope("prototype")
 public class TennisCoachFieldInjection implements Coach {
 
 	@Autowired
@@ -15,6 +18,18 @@ public class TennisCoachFieldInjection implements Coach {
 	public TennisCoachFieldInjection(){
 		System.out.println("Inside constructor TennisCoachFieldInjection");
 	}
+	//After construct method
+	@PostConstruct
+	public void doMyPostDestroyProgram(){
+		System.out.println("Post construct method");
+	}
+	//Before destroy
+	@PreDestroy
+	public void doMyInitProgram(){
+		System.out.println("pre Destroy method");
+	}
+	
+	
 	/*Not needed because of field injection
 	//define the setter method and configure the dependency using auto wiring
 	@Autowired
